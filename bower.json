@@ -1,0 +1,42 @@
+{
+  "name": "portfolio",
+  "description": "",
+  "main": "",
+  "license": "",
+  "keywords": [],
+  "homepage": "",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+
+    "bootstrap3-wysihtml5-bower": "~0.3.3",
+    "bootstrap_calendar": "~1.0.1",
+    "jquery-inputlimiter": "https://github.com/mythril/jquery-inputlimiter.git",
+    "ModalWindowEffects": "*",
+    "jQuery-Validation-Engine": "~0.1.0",
+    "datatables-responsive": "~2.1.1",
+    "bootstrapValidator": "0.5.2",
+    "fancybox": "~2.1.5",
+    "hover": "~2.0.2",
+    "circliful": "~1.0.2",
+    "jquery.newsTicker": "https://github.com/risq/jquery-advanced-news-ticker.git",
+    "ihover": "~1.0.0",
+    "unitegallery": "~1.7.28",
+    "themify-icons": "~0.1.2",
+    "ionicons": "~1.5.2",
+    "tooltip.js": "https://unpkg.com/tooltip.js"
+  },
+  "resolutions": {
+    "jquery": "~3.2.1",
+    "bootstrap": "4.0.0"
+  }
+}

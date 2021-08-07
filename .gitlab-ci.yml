@@ -1,0 +1,51 @@
+cache:
+  key: ${CI_COMMIT_REF_NAME}
+  paths:
+   - src/vendors/
+
+before_script:
+  - node -v
+  - npm -v
+  - bower -v
+  - gulp -v || npm i -g gulp --quiet
+    
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  tags:
+    - static
+  script:
+    # build final project
+    - yarn install
+    - bower install --allow-root -quiet
+    - gulp
+    - rm -rf node_modules
+  artifacts:
+    untracked: true
+    expire_in: 1 week
+    
+test_job:
+    stage: test
+    tags:
+    - static
+    dependencies:
+    - build_job
+    script:
+      # test for validation
+      - html5validator --root . --blacklist node_modules vendors src
+        
+deploy_job:
+    stage: deploy
+    tags:
+    - static
+    script: 
+     # finally deploy files
+    - mkdir -p /var/www/html/${CI_PROJECT_NAME}_${CI_COMMIT_REF_NAME} &&  rsync -a * --exclude=node_modules --exclude=src/vendors /var/www/html/${CI_PROJECT_NAME}_${CI_COMMIT_REF_NAME}
+    when: always
+    environment:
+      name: ${CI_COMMIT_REF_NAME}
+      url: http://staging.lorvent.in/${CI_PROJECT_NAME}_${CI_COMMIT_REF_NAME}

@@ -1,0 +1,3 @@
+.fixed_header #top.fixed{
+    z-index: 10000;
+}

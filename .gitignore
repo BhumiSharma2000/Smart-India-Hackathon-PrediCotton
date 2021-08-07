@@ -1,0 +1,10 @@
+# IDE related
+.idea/
+
+#npm
+node_modules/
+npm-debug.log
+
+# project source folders
+src/vendors/
+
